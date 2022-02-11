@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './Questions.dart';
 import './result.dart';
+import './info.dart';
 void main()
 {
 runApp(MyApp());
@@ -45,6 +46,11 @@ void uttarrender(){
  
 }
 
+void resetgame (){
+  setState(() {
+    count=0;
+  });
+}
   @override
 Widget build(BuildContext context){
   var question=
@@ -58,14 +64,16 @@ Widget build(BuildContext context){
 var uttars=["shashank","abhijeet",
 "phagun"];
 var uttars2=["black","blue","green"];
-  
+
 return MaterialApp(home:
 Scaffold(appBar: AppBar(title:Text("my first app.")
 ),
-body:count < question.length?
+body:
+count < question.length?
 //preventing the app from crashing at runtime..
 
 Column(children: [
+Notice(),
   Question(question[count]["quest"] as String),
   RaisedButton(child:Text(uttars[i])
   ,
@@ -82,7 +90,8 @@ Column(children: [
    onPressed: ()=>print("answer 2 chosen..")
    ),
 ],)
-:Result())
+:Result(resetgame)
+)
 );
 
 }
