@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './Questions.dart';
+import './result.dart';
 void main()
 {
 runApp(MyApp());
@@ -62,6 +63,7 @@ return MaterialApp(home:
 Scaffold(appBar: AppBar(title:Text("my first app.")
 ),
 body:count < question.length?
+//preventing the app from crashing at runtime..
 
 Column(children: [
   Question(question[count]["quest"] as String),
@@ -80,7 +82,7 @@ Column(children: [
    onPressed: ()=>print("answer 2 chosen..")
    ),
 ],)
-:Center(child:Text("thank you for taking part")))
+:Result())
 );
 
 }
