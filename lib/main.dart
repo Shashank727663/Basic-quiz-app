@@ -4,8 +4,10 @@ void main()
 {
 runApp(MyApp());
 }
+//this is a comment....
 
-class MyApp extends StatefulWidget{
+class MyApp extends StatefulWidget
+{
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -21,10 +23,9 @@ class _MyAppState extends State<MyApp>
 void answer(){
   setState(()
   {
-    if(tick==true)
-    {
+   
      count=count+1;
-    }
+    
     
 
   });
@@ -33,9 +34,9 @@ void answer(){
 }
 void uttarrender(){
   setState(() {
-  if(sel==true && tick==false){
-   
-     tick=true;
+  if(sel==true && tick==false)
+  {
+    tick=true;
   }
   
   });
@@ -46,8 +47,13 @@ void uttarrender(){
   @override
 Widget build(BuildContext context){
   var question=
-  ["what's my name?",
-  "what's my favourite color?"];
+  [
+    {"quest":"what's my name?",
+  "answers":["shashank","abhijeet","bengali"]
+  },
+  {"quest":"what's my favourite color?",
+  "answers":["black","blue","green"]},
+  ];
 var uttars=["shashank","abhijeet",
 "phagun"];
 var uttars2=["black","blue","green"];
@@ -55,14 +61,13 @@ var uttars2=["black","blue","green"];
 return MaterialApp(home:
 Scaffold(appBar: AppBar(title:Text("my first app.")
 ),
-body:Column(children: [
-  Question(question[count]),
+body:count < question.length?
+
+Column(children: [
+  Question(question[count]["quest"] as String),
   RaisedButton(child:Text(uttars[i])
   ,
   onPressed: uttarrender),
-
-
-  
     RaisedButton(child:Text(uttars[j]),
     onPressed: uttarrender),
     RaisedButton(child:Text(uttars[k]),onPressed: uttarrender),
@@ -74,7 +79,9 @@ body:Column(children: [
    RaisedButton(color:Colors.amber, child:Text("Submit content"),
    onPressed: ()=>print("answer 2 chosen..")
    ),
-],)));
+],)
+:Center(child:Text("thank you for taking part")))
+);
 
 }
 }
