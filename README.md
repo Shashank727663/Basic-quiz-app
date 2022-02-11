@@ -13,4 +13,6 @@ A few resources to get you started if this is your first Flutter project:
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
+
+#this is a basic quiz(dummy quiz app) just for the sake of practice 
 samples, guidance on mobile development, and a full API reference.
